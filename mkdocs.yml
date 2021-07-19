@@ -3,6 +3,9 @@ site_url: https://example.com/
 
 nav:
     - Home: index.md
-    - About: about.md
+    # How to add subpages 
+    - About:
+        - Tool: about.md
+        - Team: team.md 
 
 theme: readthedocs

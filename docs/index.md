@@ -11,8 +11,11 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## About the Project 
 
-This project is a collaboration with the [German Federal Ministry for Economic Affairs and Energy (BMWi)](https://www.bmwi.de/Navigation/EN/Home/home.html), which represents the main governmental body in Germany for economic affairs and economic policy. Tasks of the BMWi include developing and implementing economic support programs and forecasting economic indicators that form the basis for tax revenue estimates and budget considerations of various governmental institutions. In the light of the COVID-19 pandemic, this project aims at robustifying BMWI’s forecasts by developing a bottom-up forecasting model for predicting economic development in Germany based on regional data. The project will draw on fine-grained data on the demographic, economic and sectoral structure of regions with the aim of improving economic forecasts during times of shocks. 
+This project is a collaboration between [German Federal Ministry for Economic Affairs and Energy (BMWi)](https://www.bmwi.de/Navigation/EN/Home/home.html) and [Data Science for Social Good Fellowship, UK](https://warwick.ac.uk/research/data-science/warwick-data/dssgx/). The goal of the project is to robustify BMWI’s forecasts by developing a bottom-up forecasting model for predicting economic development in Germany based on regional data. The bottom-up approach focusses The project will draw on fine-grained data on the demographic, economic and sectoral structure of regions with the aim of improving economic forecasts during times of shocks. 
 
-## About the Tool 
+
+## Directory Structure
+
+If you're an official looking to get the GDP predictions, you can go [here](). 
 
 

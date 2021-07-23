@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://example.com/steps/error/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Error Analysis page - BMWi Forecasting Tool</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Error Analysis page";
+    var mkdocs_page_input_path = "steps\\error.md";
+    var mkdocs_page_url = "/steps/error/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BMWi Forecasting Tool</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">First-Time Users</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../quick/">Quick Access</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Step-by-Step Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home page</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_prep/">Data Prep page</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../model/">Model page</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Error Analysis page</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#launching-the-page">Launching the page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#map-visualisation">Map Visualisation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#error-plots-by-bundesland">Error Plots by Bundesland</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kreis-level-overview">Kreis Level Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structural-data-analysis">Structural Data Analysis</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#most-important-structural-variables">Most important Structural Variables</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Advanced Features</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation and Setup</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Our Journey</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../journey/models/">Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../journey/clusters/">Clusters</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../journey/causal_inf/">Causal Inference</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BMWi Forecasting Tool</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Step-by-Step Guide &raquo;</li>
+        
+      
+    
+    <li>Error Analysis page</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="error-analysis-page">Error Analysis Page</h1>
+<p><span style="color:gray"><em> Identify the kreis that are hard to get predictions for.</em></span></p>
+<p>The error analysis page uses the errors generated from the latest predictions and compares them with the structural data so that you can idenitfy which Kreis are harder to predict unemployment for and see what is different in those Kreis as opposed to the other Kreis. </p>
+<p><strong>Note:</strong> The errors calculated for the previous quarter based on the recently uploaded data and, hence, this is a retrospective analysis. One can identify which kreis were harder to predict for in the previous quarter. </p>
+<h3 id="launching-the-page">Launching the page</h3>
+<p>To open the error analysis page, select the 'Error Analysis` Section from the dropdown on the left as can be viewed in the image below.  </p>
+<p><img alt="This is the description" src="https://i.imgur.com/ggb86sd.png" /></p>
+<p>There are a variety of different plots that can be explored and have been explained in detail below. </p>
+<h2 id="map-visualisation">Map Visualisation</h2>
+<p>This is the first step of visualisation that one can view. Select the checkbox <code>Visualize error on a map?</code>. This will toggle open the following section. </p>
+<p><img alt="" src="https://i.imgur.com/3hP3JWJ.png" /></p>
+<p>Here, you will see the <code>average</code> option selected by default. This will make a map with the average value of errors. This average is calculated over all the dates of the predictions. On clicking on the dropdown and selecting a specific date, the errors for that date will be plotted as seen below. </p>
+<p><img alt="" src="https://i.imgur.com/XozVJQH.png" /></p>
+<h2 id="error-plots-by-bundesland">Error Plots by Bundesland</h2>
+<p>This section allows for a kreis-level or bundesland-level analysis. The left dropdown allows selection by Kreis or by Bundesland and the right dropdown allows selection of <code>all</code> or a particular region. </p>
+<p><img alt="" src="https://i.imgur.com/JwGjwvt.png" /></p>
+<p>Selecting <code>all</code> displays every kreis or bundesland in the same graph. Selecting an individual entry would plot the errors for a specific kreis or bundesland. The individual entries can be selected from the right dropdown option. </p>
+<p><img alt="" src="https://i.imgur.com/eu9P1dS.png" /></p>
+<h2 id="kreis-level-overview">Kreis Level Overview</h2>
+<p>The goal of the application is to break down the predictions as well as the errors at the Kreis level. The following section performs error data analysis. It helps in understanding which Kreis are the hardest to estimate for unemployment rate. </p>
+<p><img alt="" src="https://i.imgur.com/fSZlYL7.png" /></p>
+<p><span style="color:gray"><em>This dataframe currently shows 5 kreis based on their unemployment rate forecasting errors for <strong>previous</strong> quarter.</em></span></p>
+<p>There are two configuration options here:
+- <code>Highest or Lowest</code>: This lets you select the Kreis with the highest or lowest unemployment rate prediction errors in the previous quarter. 
+- <code>Value Slider</code>: This lets you select the number of Kreis to be displayed currently. <em>From UI perspective, the maximum limit is 20</em> </p>
+<p>To view all the Kreis, download the complete error table by clicking on the option <code>Download the full error table</code>. </p>
+<h2 id="structural-data-analysis">Structural Data Analysis</h2>
+<p>The next step is to analyze the errors with regards to the structural data and see hot the errors vary with a particular structural variable. Select a structural variable to compare against the errors. (<em>Eg: Errors are compared against <code>eligible_area</code> in this image</em>). </p>
+<p>The errors are on the x-axis so the fatter the curve is the more prone that category is to errors. In the following example, the areas where <code>eligible_area</code> is 0 are less prone to prediction errors than areas with code 1. </p>
+<p><img alt="" src="https://i.imgur.com/cNEJJ5p.png" /></p>
+<p><strong>Future:</strong> Later, we can add a check to see if the variable is a categorical or numerical variable.  </p>
+<h3 id="most-important-structural-variables">Most important Structural Variables</h3>
+<p>Write a bit about this method a bit more </p>
+<p><img alt="" src="https://i.imgur.com/zNZCKye.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../installation/" class="btn btn-neutral float-right" title="Installation and Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../model/" class="btn btn-neutral" title="Model page"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../model/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

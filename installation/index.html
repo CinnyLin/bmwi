@@ -47,15 +47,22 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">First-Time Users</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../start/">Getting Started</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../quick/">Quick Access</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Step-by-Step Guide</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../steps/">Step-by-Step Guide</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../steps/home/">Home page</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../steps/data_prep/">Data Prep page</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../steps/model/">Model page</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../steps/error/">Error Analysis page</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Advanced Features</span></p>
@@ -128,15 +135,18 @@
               
                 <h1 id="technical-documentation">Technical Documentation</h1>
 <p>This section is for people who might want to edit the code base of the application. The repository with all the code can be found <a href="">here</a>.</p>
-<p>The application is built using the following tools and frameworks: 
-- <a href="">Python</a> 
-- <a href="">Streamlit</a> 
-- <a href="">Pandas</a>
-- <a href="">Statsmodels</a> 
-- <a href="">Keras</a> </p>
+<p>The application is built using the following tools and frameworks: </p>
+<ul>
+<li><a href="">Python</a> </li>
+<li><a href="https://streamlit.io/">Streamlit</a> </li>
+<li><a href="">Pandas</a></li>
+<li><a href="">Statsmodels</a> </li>
+<li><a href="">Keras</a> </li>
+</ul>
 <p>To make edits to the tool, one must know how to work with the aforementioned frameworks. More details about each of them can be found on the links provided above. </p>
 <h2 id="about-streamlit">About Streamlit</h2>
-<p>This application is built using Streamlit</p>
+<p>This application is built using <a href="https://streamlit.io/">Streamlit</a>, a Python framework to build interactive web applications. It has a rich API for various interactive features which can be learnt more about <a href="https://docs.streamlit.io/en/stable/api.html">here</a>. It's a relatively new framework and its recommended to explore <a href="https://docs.streamlit.io/en/stable/getting_started.html">building basic apps</a> with it before diving deep into the repository. </p>
+<p>To set up the repository on your local machine follow the installation steps below: </p>
 <h2 id="installation">Installation</h2>
 <p>To set up the application on your local machine, follow these steps. </p>
 <ol>
@@ -147,16 +157,13 @@
 <ol>
 <li>
 <p>Create a virtual environment </p>
-</li>
-<li>
 <p>For MacOS/Linux</p>
 </li>
 </ol>
 <pre><code>python3 -m venv env
 </code></pre>
-<ul>
-<li>For Windows </li>
-</ul>
+<pre><code>For Windows
+</code></pre>
 <pre><code>py -m venv env
 </code></pre>
 <p>The second argument is the location to create the virtual environment. Generally, you can just create this in your project and call it <code>env</code>. Read more about virtual env <a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/">here</a>. </p>
@@ -200,7 +207,7 @@
         <a href="../about/tool/" class="btn btn-neutral float-right" title="Tool">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../steps/" class="btn btn-neutral" title="Step-by-Step Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../steps/error/" class="btn btn-neutral" title="Error Analysis page"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -226,7 +233,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../steps/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../steps/error/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../about/tool/" style="color: #fcfcfc">Next &raquo;</a></span>

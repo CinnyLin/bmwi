@@ -67,7 +67,9 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Advanced Features</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation and Setup</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/installation/">Installation and Setup</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/cleanerclass/">Cleaner Class</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">About</span></p>
@@ -84,6 +86,14 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Models</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#vector-autoregression">Vector Autoregression</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#model-introduction">Model Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#training-method">Training Method</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prophet">Prophet</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
     </li>
@@ -134,7 +144,20 @@
                 <h1 id="model-descriptions">Model Descriptions</h1>
 <p>This section talks about the various models that we have built and tested. It documents the various models which worked well and also the models which did not work well. </p>
 <h2 id="vector-autoregression">Vector Autoregression</h2>
+<p>Vector Autoregression (VAR) is a forecasting algorithm that can be used when two or more time series influence each other. That is, the relationship between the time series involved is bi-directional. </p>
+<h3 id="model-introduction">Model Introduction</h3>
+<p>Vector Autoregression (VAR) is a multivariate forecasting algorithm that is used when two or more time series influence each other. It is considered as an Autoregressive model because, each variable (Time Series) is modeled as a function of the past values, that is the predictors are nothing but the lags (time delayed value) of the series.The primary difference between VAR and other Autoregressive (AR) modesl is that these models are uni-directional, where, the predictors influence the Y and not vice-versa. Whereas, VAR is bi-directional. That is, the variables influence each other.</p>
+<p><img alt="" src="https://i.imgur.com/eL8M1io.png" />
+<span style="color:grey;"><em>Typical AR Model: Future value only depends on the past values of that series.</em></span></p>
+<p><img alt="" src="https://i.imgur.com/PBSbjM1.png" />
+<span style="color:grey;"><em>VAR Model: Future values of one series depends on the past value of the same series and the parallel series</em></span></p>
+<h3 id="training-method">Training Method</h3>
+<p>The training is done using the clusters that were developed based on the stationary data. The cluster development method has been elucidated within the <a href="">cluster section</a>.</p>
+<p>The intuition behind VAR based cluster methods is that the Kreis in each cluster move together in terms of the unemployment rate and affect each other. The regional clusters are made using Bundesland and does not perform as well as the custom clusters which were created using statistical data. Since VAR learns from parallel series, the kreis in each cluster affect each other's unemployment rate within the same cluster. </p>
+<p><em>Should I explain walk-forward?</em></p>
+<h2 id="prophet">Prophet</h2>
 <h2 id="references">References</h2>
+<p>[1] https://www.machinelearningplus.com/time-series/vector-autoregression-examples-python/</p>
               
             </div>
           </div>

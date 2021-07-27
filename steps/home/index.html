@@ -99,7 +99,9 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Advanced Features</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation and Setup</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/installation/">Installation and Setup</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/cleanerclass/">Cleaner Class</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">About</span></p>
@@ -164,7 +166,7 @@
 <p>The first section is kreise ranking, containing three elements:</p>
 <h3 id="slide-bar">Slide bar</h3>
 <p>The slide bar allows you to see the top N kreise with the highest unemployment rates. It is set in a range from 10 to 100, in increments of 10. The default is set at 10.</p>
-<p><img alt="slide bar" src="../screenshots/slidebar.png" /></p>
+<p><img alt="slide bar" src="../home_screenshots/slidebar.png" /></p>
 <p><span style="color:gray"><em>The screenshot sample is set at 30, meaning that it would show a dataframe with the top 30 highest unemployment rates.</em></span></p>
 <h3 id="sort-by-columns">Sort-by Columns</h3>
 <p>This is a multi-selection input field where you can choose multiple columns you want to sort the kreise ranking by. The ranking would then be sorted based on your input selections. </p>
@@ -198,17 +200,17 @@
 </ul>
 </li>
 </ul>
-<p><img alt="sort by columns" src="../screenshots/sortby.png" /></p>
+<p><img alt="sort by columns" src="../home_screenshots/sortby.png" /></p>
 <p><span style="color:gray"><em>For example, the screenshot sample is set at the three default columns: this quarter (<code>2020-03-31</code>), last quarter (<code>last_time%</code>), and the same quarter last year (<code>last_year%</code>).</em></span></p>
 <h3 id="results">Results</h3>
 <p>After setting the number of top kreise you want to see and the columns you want to sort by, you are presented with the dataframe output of your choosing.</p>
-<p><img alt="sorted dataframe" src="../screenshots/sort_df.png" /></p>
+<p><img alt="sorted dataframe" src="../home_screenshots/sort_df.png" /></p>
 <p><span style="color:gray"><em>This dataframe currently shows the top 30 kreis based on their unemployment rate this quarter, and also showing percentage change comparision to last quarter and last year, because they were in the input fields. </em></span></p>
 <p><strong>Pro Tip</strong>: Click on a column to sort by the column. Click again to switch between ascending and descending sorting.</p>
 <p>The arrow circled in red next to the column means that the dataframe is currently sorted by that column. The arrow facing downwards means that the column is sorted in descending order.</p>
 <p>Note that even when the dataframe is sorted by the column you click, the top results is still filtered from the full dataframe based on the first input column. </p>
 <p><span style="color:red">^ Does this make sense?</span></p>
-<p><img alt="sorted column" src="../screenshots/sort_col.png" /></p>
+<p><img alt="sorted column" src="../home_screenshots/sort_col.png" /></p>
 <p><span style="color:gray"><em>This dataframe currently shows the top 30 kreis based on their unemployment rate this quarter, and is also sorted by the percentage change compared to last year.</em></span></p>
 <p><span style="color:gray"><em>For example, even though the dataframe is currently sorted by <code>last_year%</code> when we clicked on it, it is not sorting the top 30 kreis of <code>last_year%</code> based on the full dataset, but sorting based on the top 30 kreis of this quarter.</em></span></p>
 <p><span style="color:red">Should I add a map highlighting the selected top kreis with annotations, and also colored by the first sorted column.</span></p>
@@ -216,10 +218,10 @@
 <p>The second section is bundesland / group ranking, containing five elements, following a similar format to the previous section:</p>
 <h3 id="slide-bar_1">Slide-bar</h3>
 <p>The slide bar allows you to see the top N kreise with the highest unemployment rates. It is set in a range from 50 to 200, in increments of 10. The default is set at 50.</p>
-<p><img alt="slide bar" src="../screenshots/slidebar3.png" /></p>
+<p><img alt="slide bar" src="../home_screenshots/slidebar3.png" /></p>
 <p>Compared to the previous section, the slide bar range is slightly larger because the reuslts in this section is grouped.</p>
 <h3 id="sort-by-columns_1">Sort-by Columns</h3>
-<p><img alt="sorted column" src="../screenshots/sortby3.png" /></p>
+<p><img alt="sorted column" src="../home_screenshots/sortby3.png" /></p>
 <p>Similar to the last section, the ranking would then be sorted based on your input column. Different from the last section, this section only allows you to sort by one column for simplicity. </p>
 <h3 id="group-by-columns">Group-by columns</h3>
 <p>This multi-selection box offers a range of categorical variables to group by. The options include:</p>
@@ -249,11 +251,11 @@
 <p><code>metropolitan_region</code> ("Europäische Metropolregion")</p>
 </li>
 <li>
-<p>state-level ("<code>ags2</code>" / "<code>bundesland</code>")</p>
+<p>state area code (Amtlicher Gemeindeschlüssel, "<code>ags2</code>") / state-level ("<code>bundesland</code>")</p>
 </li>
 </ul>
 <p><span style="color:red">^ Are there other groupings that could be useful that are currently not included? Need to add GRW eligible for funding category column.</span></p>
-<p><img alt="grouped by column" src="../screenshots/groupby.png" /></p>
+<p><img alt="grouped by column" src="../home_screenshots/groupby.png" /></p>
 <p><span style="color:gray"><em>The default is set to group by both <code>growth_shrink_cities</code> and <code>east_west</code>.</em></span></p>
 <h3 id="results_1">Results</h3>
 <p>The filtering result is a multi-index dataframe with three columns. The multi-index is presented based on how many columns you group by. The three columns include: </p>
@@ -269,31 +271,30 @@
 </li>
 </ul>
 <p><span style="color:red">^ Change column name "kreis" to "#kreis"</span></p>
-<p><img alt="sorted dataframe" src="../screenshots/sort_df3.png" /></p>
+<p><img alt="sorted dataframe" src="../home_screenshots/sort_df3.png" /></p>
 <p><span style="color:gray"><em>For example, this sample dataframe shows the top <code>50</code> kreise, sorted by <code>last_year%</code>, grouped by <code>growth_shrink_cities</code> and <code>east_west</code>.</em></span></p>
-<p><i>
-<span style="color:gray">Reading the first row: </p>
+<p><i></p>
+<p style="color:gray">Reading the first row: </p>
 <ul style="color:gray">
     <li> the first column, `last_year%`, means that in the top 50 kreise with highest percentage change in unemployment rate compared to last year, `22` of them belong to growing cities in west Germany.
     <li> the second column, `#kreis` means that there is a total of `163` (out of all 401) kreise that are growing cities in west Germany.
     <li> the third column, `%counts`, means that 22 kreise accounts for `13.5%` of all the kreise in the growing-cities-West-Germany group.
 </ul>
-<p></span>
-</i></p>
+<p></i></p>
 <p><span style="color:gray"><em>The <code>#kreis</code> and <code>%counts</code> are reference indicators to help contextualize the counts in the first column. For example, looking at the first column alone, it seems that growing-cities-West-Germany has the most number of kreise in the top 50 to have high unemployment changes since last year. However, when looking at the third column, we see that growing-above-average-West-Germany is actually the group with the highest percentage of kreise than other group to have the high unemployment changes in a year.</em></span></p>
 <p><span style="color:gray"><em>Also note the number of multi-indices shown in the example. Since <code>growth_shrink_cities</code> have five categories, and <code>east_west</code> has two categories, there should be a total of 10 category groups in the index rows. However, the reason why not all combinations are shown is because some categories do not have kreise in it. Sometimes, it could be useful to see what category groups are not in the top lists.</em></span></p>
 <h3 id="visualizations">Visualizations</h3>
 <p>Visualize the dataframe output results.</p>
 <p>As explained in the tip, when grouping by multiple columns, resulting a large number of combinations, it may be hard to see the results clearly using the pie chart or bar chart.</p>
-<p><img alt="visualization" src="../screenshots/visualizations.png" /></p>
+<p><img alt="visualization" src="../home_screenshots/visualizations.png" /></p>
 <h4 id="pie-chart">Pie Chart</h4>
 <p>The pie chart visualizes the <code>{sort_by_column}</code> into proportions.</p>
-<p><img alt="pie chart" src="../screenshots/pie.png" /></p>
+<p><img alt="pie chart" src="../home_screenshots/pie.png" /></p>
 <p><span style="color:gray"><em>As shown above, the sample pie chart visualizes the percentage each category group takes in total from the <code>last_year%</code> column. For example, growing-cities-West-Germany group accounts for <code>22</code> out of the total of <code>50</code> top kreise, therefore, it takes up <code>44%</code> as shown in the pie chart.</em></span></p>
 <h4 id="bar-chart">Bar Chart</h4>
 <p>As explained earlier, the pie chart could be a biased understanding of the category groups, and that can be balanced by understanding the percentage of those kreis accounting for the whole category group.</p>
 <p>The bar chart visualizes the <code>%counts</code> column, and draws a horizontal line on the 50% mark.</p>
-<p><img alt="bar chart" src="../screenshots/bar.png" /></p>
+<p><img alt="bar chart" src="../home_screenshots/bar.png" /></p>
 <p><span style="color:gray"><em>As shown above, the sample bar chart visualizes the percentage the top 50 kreise took up for its whole category group. Note that you could use the two arrows on the top right to expand the plot if the display is too small on your screen.</em></span></p>
 <p><span style="color:red">^ Also add this as a pro tip on the tool page</span></p>
 <p><span style="color:red">^ Are there other things that should be added on the home page for quick access?</span></p>

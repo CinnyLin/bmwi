@@ -19,7 +19,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Data Prep page";
-    var mkdocs_page_input_path = "steps\\data_prep.md";
+    var mkdocs_page_input_path = "steps/data_prep.md";
     var mkdocs_page_url = "/steps/data_prep/";
   </script>
   
@@ -47,11 +47,16 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">First-Time Users</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../quick/">Quick Access</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../start/start/">Start Here</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../start/user/">User Workflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../start/quick/">Quick Access</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Step-by-Step Guide</span></p>
@@ -62,13 +67,15 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#reshape-and-merge-datasets">Reshape and merge datasets</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exporting-excel-worksheets">Exporting excel worksheets</a>
+    <li class="toctree-l2"><a class="reference internal" href="#time-series-data-excel-workbook">Time-series data excel workbook</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#upload-excel-workbook">Upload Excel Workbook</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#select-data-to-clean">Select data to clean</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#select-variable">Select variable</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#select-data-format">Select data format</a>
         <ul>
@@ -78,21 +85,9 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#select-variable">Select variable</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#merging">Merging</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#long-formats-merged-to-one-wide-format">Long formats merged to one wide format</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#wide-formats-merged-to-one-long-format">Wide formats merged to one long format</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#confirm-merge">Confirm merge</a>
-    </li>
         </ul>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#merging-multiple-csv-files">Merging multiple csv files</a>
+    <li class="toctree-l2"><a class="reference internal" href="#structural-data-csv-files">Structural data csv files</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#final-dataset-cleaning">Final dataset cleaning</a>
         <ul>
@@ -111,6 +106,8 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Advanced Features</span></p>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/tech_flow/">Technical Workflow</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../advanced/installation/">Installation and Setup</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../advanced/cleanerclass/">Cleaner Class</a>
@@ -173,7 +170,6 @@
               
                 <h1 id="data-prep-page">Data Prep page</h1>
 <p>Upload the dataset and make any necessary changes to fit the prediction model. </p>
-<p><span style="color:red">^ What are other data cleaning that could be needed?</span></p>
 <h2 id="reshape-and-merge-datasets">Reshape and merge datasets</h2>
 <p>This section process data differently for excel or csv files, and for time-series or structural data type. It assumes that:</p>
 <ul>
@@ -184,10 +180,10 @@
 <p><strong>structural</strong> data are in <strong>long</strong>-format <strong>csv</strong> files, where each row is a record of one kreis, and each column is one variable</p>
 </li>
 <li>
-<p>both assumes to have at least a column containing the kreis-level area code ("")</p>
+<p>both assumes to have one column containing the kreis-level area code <code>ags5</code> ("amtlicher gemeindeschlüssel")</p>
 </li>
 </ul>
-<h2 id="exporting-excel-worksheets">Exporting excel worksheets</h2>
+<h2 id="time-series-data-excel-workbook">Time-series data excel workbook</h2>
 <h3 id="error-handling">Error Handling</h3>
 <p><img alt="error 1" src="../prep_screenshots/error1.png" /></p>
 <p>When you open up the page, you will likely be facing this error. No worries, that just means you haven't uploaded a data yet!</p>
@@ -221,30 +217,38 @@
     <li> Each worksheet represents a different variable. For example, the current worksheet selected is "1.1", which according to the trailing title means gross domestic product ("bruttoinlandsprodukt"). 
 </ul>
 <p></i></p>
-<h3 id="select-data-format">Select data format</h3>
-<p><img alt="select data format" src="../prep_screenshots/select_format.png" /></p>
-<p><span style="color:red">^ Change to select "export" data format</span></p>
-<h4 id="long-format">Long format</h4>
-<p><img alt="long format one variable" src="../prep_screenshots/long_one.png" /></p>
-<p><span style="color:gray"><em>This is an example of a single-variable "long" format data. The dataframe contains three columns: the kreis code (<code>ags5</code>), the time (<code>date</code>), and the variable (e.g. <code>Alo Quote</code>). The number of rows of this file is 401 kreis * #dates for each kreis.</em></span></p>
-<p><span style="color:red">^ If this confusing should we just call it wide format?</span></p>
-<h4 id="wide-format">Wide format</h4>
-<p><img alt="wide format one variable" src="../prep_screenshots/wide_one.png" /></p>
-<p><span style="color:gray"><em>This is an example of a single-variable "wide" format data. The dataframe contains one index column, the kreis code (<code>ags5</code>), and the rest of the columns are dates. The number of rows of this file should be 401.</em></span></p>
 <h3 id="select-variable">Select variable</h3>
 <p><img alt="select variable" src="../prep_screenshots/select_var.png" /></p>
 <p><span style="color:gray"><em>Choose at least one variable. Choosing no variables at all would result in the IndexError above.</em></span></p>
-<h3 id="merging">Merging</h3>
-<h4 id="long-formats-merged-to-one-wide-format">Long formats merged to one wide format</h4>
-<p><img alt="long merged wide format" src="../prep_screenshots/long_merge.png" /></p>
-<p><span style="color:gray"><em>Merging multiple so-called long-format-single-variable data together results in a commonly-knwown "wide format" merged file as shown above. <code>ags5</code> and <code>date</code> are the index columns. Each column afterwards represents a variable. In this example, the two columns are <code>SvB_AO</code> (Sozialversicherungspflichtig Beschäftigte -- Arbeitsort) and <code>Alo_Quote</code> (Arbeitslosenquote).</em></span></p>
-<h4 id="wide-formats-merged-to-one-long-format">Wide formats merged to one long format</h4>
-<p><img alt="wide merged long format" src="../prep_screenshots/wide_merge.png" /></p>
-<p><span style="color:gray"><em>Merging multiple so-called wide-format-single-variable data together results in a commonly-known "long format" merged file as shown above. <code>ags5</code> and <code>variable</code> are the index columns. Each column afterwards represents a date. In this example, the two variables are <code>SvB_AO</code> and <code>Alo_Quote</code>, and they are indicated in the <code>variable</code> column.</em></span></p>
-<h4 id="confirm-merge">Confirm merge</h4>
-<p><img alt="confirm merge" src="../prep_screenshots/confirm_merge.png" /></p>
-<p><span style="color:gray"><em>A preview of the merged data would be shown like the long and wide formats above. Once you confirm to use the merged data, it would be set as the default loaded dataset on the tool.</em></span></p>
-<h2 id="merging-multiple-csv-files">Merging multiple csv files</h2>
+<h3 id="select-data-format">Select data format</h3>
+<p><img alt="select data format" src="../prep_screenshots/select_format.png" /></p>
+<h4 id="long-format">Long format</h4>
+<p><img alt="long format one variable" src="../prep_screenshots/long_one.png" /></p>
+<p><span style="color:gray"><em>This is an example of a single-variable "long" format data. The dataframe contains three columns: the kreis code (<code>ags5</code>), the time (<code>date</code>), and the variable (e.g. <code>Alo Quote</code>). The number of rows of this file is 401 kreis * #dates for each kreis.</em></span></p>
+<h4 id="wide-format">Wide format</h4>
+<p><img alt="wide format one variable" src="../prep_screenshots/wide_one.png" /></p>
+<p><span style="color:gray"><em>This is an example of a single-variable "wide" format data. All the columns in the dataframe are dates. The index of the dataframe is the <code>ags5</code> code. The number of rows of this file should be 401.</em></span></p>
+<!-- ### Merging
+
+#### Long formats merged to one wide format
+
+![long merged wide format](../prep_screenshots/long_merge.png)
+
+<span style="color:gray">*Merging multiple so-called long-format-single-variable data together results in a commonly-knwown "wide format" merged file as shown above. `ags5` and `date` are the index columns. Each column afterwards represents a variable. In this example, the two columns are `SvB_AO` (Sozialversicherungspflichtig Beschäftigte -- Arbeitsort) and `Alo_Quote` (Arbeitslosenquote).*</span>
+
+#### Wide formats merged to one long format
+
+![wide merged long format](../prep_screenshots/wide_merge.png)
+
+<span style="color:gray">*Merging multiple so-called wide-format-single-variable data together results in a commonly-known "long format" merged file as shown above. `ags5` and `variable` are the index columns. Each column afterwards represents a date. In this example, the two variables are `SvB_AO` and `Alo_Quote`, and they are indicated in the `variable` column.*</span>
+
+#### Confirm merge
+
+![confirm merge](../prep_screenshots/confirm_merge.png)
+
+<span style="color:gray">*A preview of the merged data would be shown like the long and wide formats above. Once you confirm to use the merged data, it would be set as the default loaded dataset on the tool.*</span> -->
+
+<h2 id="structural-data-csv-files">Structural data csv files</h2>
 <p><img alt="csv" src="../prep_screenshots/csv.png" /></p>
 <p><span style="color:gray"><em>This is a sample of a csv file the tool expects. It should at least contain <code>ags5</code>, but could also include metadata such as <code>ags2</code>, <code>bundesland</code>, <code>kreis</code> etc. Each column afterwards is a varaible.</em></span></p>
 <p><img alt="merge csv" src="../prep_screenshots/csv_merge.png" /></p>

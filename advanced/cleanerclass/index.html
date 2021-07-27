@@ -19,7 +19,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Cleaner Class";
-    var mkdocs_page_input_path = "advanced\\cleanerclass.md";
+    var mkdocs_page_input_path = "advanced/cleanerclass.md";
     var mkdocs_page_url = "/advanced/cleanerclass/";
   </script>
   
@@ -47,11 +47,16 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">First-Time Users</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../quick/">Quick Access</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../start/start/">Start Here</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../start/user/">User Workflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../start/quick/">Quick Access</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Step-by-Step Guide</span></p>
@@ -67,6 +72,8 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Advanced Features</span></p>
                 <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../tech_flow/">Technical Workflow</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation and Setup</a>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Cleaner Class</a>
@@ -185,8 +192,8 @@
               
                 <h1 id="cleanerclass-explained">CleanerClass Explained</h1>
 <p>This page walks through the assumptions and implementation code for the excel sheet cleaner. </p>
-<p>We have written two CleanerClasses: for <strong>labor market data (unemployment rate)</strong> and for <strong>GDP</strong>. </p>
 <h2 id="purpose-of-the-cleanerclass">Purpose of the CleanerClass</h2>
+<p>The excel sheet cleaner is what is used on the <a href="">Data Prep page</a> to get the data for our prediction model from excel workbooks. We have written two CleanerClasses: one for <strong>labor market data (unemployment rate)</strong> and one for <strong>GDP</strong>. </p>
 <p>The goal of the CleanerClass is to retrieve a csv-like format of the data, containing only the essential index columns, variable columns, and the numerical values of the data. Worksheets that are metadata descriptions would be discarded, and the watermark-like header rows would also be cropped out in the process.</p>
 <h2 id="assumed-formatting-for-the-cleanerclass">Assumed Formatting for the CleanerClass</h2>
 <p>As explained briefly in the Data Prep page, below is the expected structure of the excel workbook.</p>

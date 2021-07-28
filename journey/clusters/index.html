@@ -19,7 +19,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Clusters";
-    var mkdocs_page_input_path = "journey/clusters.md";
+    var mkdocs_page_input_path = "journey\\clusters.md";
     var mkdocs_page_url = "/journey/clusters/";
   </script>
   
@@ -83,6 +83,8 @@
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
@@ -92,19 +94,43 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../models/">Models</a>
                     </li>
+                    <li class="toctree-l1"><a class="" href="../hierarchical_ts.md">Hierarchical Time Series</a>
+                    </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Clusters</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#need-for-clusters">Need for clusters</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#type-of-clusters">Type of Clusters</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bundesland">Bundesland</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cluster-graphs">Cluster graphs</a>
+    <li class="toctree-l3"><a class="reference internal" href="#pca-k-means">PCA &amp; K-means</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tsne">tSNE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#k-modes">K-modes</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cluster-groups">Cluster groups</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bundesland_1">Bundesland</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pca-k-means_1">PCA &amp; K-means</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tsne_1">tSNE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#k-modes_1">K-modes</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../causal_inf/">Causal Inference</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../covid19/">Covid19 restrictions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../GDP/">GDP and Unemploymet rate</a>
                     </li>
                 </ul>
       </div>
@@ -145,10 +171,58 @@
             <div class="section">
               
                 <h1 id="cluster-analysis">Cluster Analysis</h1>
+<p>This section talks about the clusters that we have built 
+and used for the model. </p>
 <h2 id="need-for-clusters">Need for clusters</h2>
+<p>We wanted to forecast unemployment rate for all 401 Kreise of Germany. 
+Of course, we could have create 401 independent time series models, one for each Kreis. 
+However, this would mean that all models won't learn from the unemployment rate time series of other Kreise. 
+We believed that some Kreise must be similar to each other, 
+and can benefit from incorporating each other's data in the forecasting process.</p>
+<p>We used unsupervised classification methods to divide Kreise into clusters, 
+based on 176 structural features collected during 2017-2018 for each Kreise. 
+These clusters were later used in hierarchical time series models, and in VAR models.  </p>
 <h2 id="type-of-clusters">Type of Clusters</h2>
-<h2 id="cluster-graphs">Cluster graphs</h2>
+<p>We explored 4 different methods to cluster the Kreise</p>
+<h3 id="bundesland">Bundesland</h3>
+<p>Each Kreise belongs to one out for 16 Bundeslands. 
+Kreise that belong to the same Bundesland have a similar geographic location, 
+and are also affected by the same decisions that are made on a Bundesland level. </p>
+<p><img alt="Bundesland" src="../clusters_screenshots/bundesland.png" /></p>
+<!-- ![Bundesland](https://i.imgur.com/Se78LkN.png) -->
+
+<h3 id="pca-k-means">PCA &amp; K-means</h3>
+<p>We started with clustering using 169 numerical features (disregarding the 7 categorical features). </p>
+<p>First, we reduced the features dimension using PCA 
+with 3 components. </p>
+<ol>
+<li>The first component explained 53.0% of the variance of the features, 
+and represented mainly the population size features. </li>
+<li>The second component explained 11.4% of the variance of the features, 
+and represented mainly the rural vs. city features. </li>
+<li>The third component explained 4.7% of the variance of the features, 
+and represented mainly the economical features. </li>
+</ol>
+<p><img alt="PCA &amp; K-means" src="../clusters_screenshots/PCA1.png" /></p>
+<p><img alt="PCA &amp; K-means" src="../clusters_screenshots/PCA2.png" /></p>
+<p>Then, we used K-means to cluster the Kreise into 3 clusters based on the PCA features. </p>
+<p><img alt="PCA &amp; K-means" src="../clusters_screenshots/Kmeans_of_PCA.png" /></p>
+<p><img alt="PCA &amp; K-means" src="../clusters_screenshots/hierarchy_PCA.png" /></p>
+<h3 id="tsne">tSNE</h3>
+<p>We started with clustering using 169 numerical features (disregarding the 7 categorical features). </p>
+<p>First, we reduced the features dimension using tSNE with 3 components. </p>
+<p><img alt="PCA &amp; K-means" src="../clusters_screenshots/tSNE.png" /></p>
+<p>Then, we used K-means to cluster the Kreise into 3 clusters based on the PCA features. </p>
+<p><img alt="PCA &amp; K-means" src="../clusters_screenshots/Kmeans_of_tSNE.png" /></p>
+<h3 id="k-modes">K-modes</h3>
+<p>To incorporate categorical features as well, we also tried K-modes classification on the original 176 features, both numerical and categorical. </p>
 <h2 id="cluster-groups">Cluster groups</h2>
+<p><em>Should we add a list of all kerise?</em></p>
+<p><em>Should we add a map?</em></p>
+<h3 id="bundesland_1">Bundesland</h3>
+<h3 id="pca-k-means_1">PCA &amp; K-means</h3>
+<h3 id="tsne_1">tSNE</h3>
+<h3 id="k-modes_1">K-modes</h3>
               
             </div>
           </div>

@@ -19,7 +19,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Models";
-    var mkdocs_page_input_path = "journey/models.md";
+    var mkdocs_page_input_path = "journey\\models.md";
     var mkdocs_page_url = "/journey/models/";
   </script>
   
@@ -83,6 +83,8 @@
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
@@ -102,13 +104,21 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#prophet">Prophet</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hierarchical-time-series">Hierarchical Time Series</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
     </li>
     </ul>
                     </li>
+                    <li class="toctree-l1"><a class="" href="../hierarchical_ts.md">Hierarchical Time Series</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../clusters/">Clusters</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../causal_inf/">Causal Inference</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../covid19/">Covid19 restrictions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../GDP/">GDP and Unemploymet rate</a>
                     </li>
                 </ul>
       </div>
@@ -163,6 +173,24 @@
 <p>The intuition behind VAR based cluster methods is that the Kreis in each cluster move together in terms of the unemployment rate and affect each other. The regional clusters are made using Bundesland and does not perform as well as the custom clusters which were created using statistical data. Since VAR learns from parallel series, the kreis in each cluster affect each other's unemployment rate within the same cluster. </p>
 <p><em>Should I explain walk-forward?</em></p>
 <h2 id="prophet">Prophet</h2>
+<p>Prophet is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects. It works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend, and typically handles outliers well.</p>
+<h2 id="hierarchical-time-series">Hierarchical Time Series</h2>
+<p>Hierarchical time series model is a model that utilized the hierarchy in the data. 
+It generates forecasts for each individual time series, 
+but takes into account the relationships within the hierarchy.
+In our case, we considered the hierarchy of the different clusters explained in the <a href="">cluster section</a>. </p>
+<p>We forecasted using different models, 
+- SARIMA
+- auto_arima​
+- Prophet</p>
+<p>We aggregated using different methods, 
+- Top-Down
+    - AHP 
+    - PHA​
+- Bottom-Up​
+- WLSS</p>
+<p>Unfortunately, the bottom up approach was best, 
+which means that the hierarchy does not add any useful information. </p>
 <h2 id="references">References</h2>
 <p>[1] https://www.machinelearningplus.com/time-series/vector-autoregression-examples-python/</p>
               

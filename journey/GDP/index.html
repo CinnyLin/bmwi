@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://example.com/advanced/tech_flow/">
+  <link rel="canonical" href="https://example.com/journey/GDP/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Technical Workflow - BMWi Forecasting Tool</title>
+  <title>GDP and Unemploymet rate - BMWi Forecasting Tool</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Technical Workflow";
-    var mkdocs_page_input_path = "advanced\\tech_flow.md";
-    var mkdocs_page_url = "/advanced/tech_flow/";
+    var mkdocs_page_name = "GDP and Unemploymet rate";
+    var mkdocs_page_input_path = "journey\\GDP.md";
+    var mkdocs_page_url = "/journey/GDP/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
@@ -71,14 +71,12 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Advanced Features</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Technical Workflow</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/tech_flow/">Technical Workflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation and Setup</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/installation/">Installation and Setup</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cleanerclass/">Cleaner Class</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/cleanerclass/">Cleaner Class</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">About</span></p>
@@ -93,18 +91,20 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Our Journey</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/models/">Models</a>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../models/">Models</a>
                     </li>
-                    <li class="toctree-l1"><a class="" href="../../journey/hierarchical_ts.md">Hierarchical Time Series</a>
+                    <li class="toctree-l1"><a class="" href="../hierarchical_ts.md">Hierarchical Time Series</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/clusters/">Clusters</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../clusters/">Clusters</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/causal_inf/">Causal Inference</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../causal_inf/">Causal Inference</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/covid19/">Covid19 restrictions</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../covid19/">Covid19 restrictions</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/GDP/">GDP and Unemploymet rate</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GDP and Unemploymet rate</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -128,11 +128,11 @@
     
       
         
-          <li>Advanced Features &raquo;</li>
+          <li>Our Journey &raquo;</li>
         
       
     
-    <li>Technical Workflow</li>
+    <li>GDP and Unemploymet rate</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -144,46 +144,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="technical-workflow">Technical Workflow</h1>
-<!-- load mermaid -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-mermaid.initialize({startOnLoad:true});
-mermaidAPI.initialize({
-    securityLevel: 'loose'
-});
-</script>
-
-<p><strong>Pro Tip</strong>: Clicking on the purple nodes leads to the source code.</p>
-<!-- **Pro Tip**: Clicking on the purple nodes leads to the tool page. -->
-
-<div class="mermaid">
-graph TD
-    subgraph Dataset Prep page
-    A[time-series excel workbook with CleanerClass]
-    end
-    subgraph Model page
-    B[Unemployment Rate Prediction on Kreis-level]
-    C[Visualization: line plot, map of Germany]
-    D[Output file: single excel worksheet]
-    B --> C --> D
-    end
-    subgraph Error Analysis page
-    E[compare structure, crisis-time data]
-    end
-    subgraph Home page
-    F[rankings & groups]
-    end
-    A --> B
-    D --> E
-    D --> F
-    click A "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/data_prep.py"
-    click B "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/model_v1.py"
-    click C "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/model_v1.py"
-    click D "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/model_v1.py"
-    click E "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/error_analysis.py"
-    click F "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/home_page.py"
-</div>
+                <h1 id="gdp-and-unemploymet-rate">GDP and Unemploymet rate</h1>
               
             </div>
           </div>
@@ -191,10 +152,8 @@ graph TD
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../installation/" class="btn btn-neutral float-right" title="Installation and Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../../steps/error/" class="btn btn-neutral" title="Error Analysis page"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../covid19/" class="btn btn-neutral" title="Covid19 restrictions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -220,10 +179,8 @@ graph TD
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../steps/error/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../covid19/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../installation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

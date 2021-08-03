@@ -67,6 +67,10 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/model/">Model page</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../steps/visualizations/">Visualizations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../steps/ranking.md">Rankings</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/error/">Error Analysis page</a>
                     </li>
                 </ul>
@@ -77,17 +81,6 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../advanced/installation/">Installation and Setup</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../advanced/cleanerclass/">Cleaner Class</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">About</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Our Journey</span></p>
@@ -104,6 +97,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#prophet">Prophet</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sarima">SARIMA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#neural-network">Neural network</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#hierarchical-time-series">Hierarchical Time Series</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
@@ -116,9 +113,20 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../causal_inf/">Causal Inference</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../covid19/">Covid19 restrictions</a>
+                    <li class="toctree-l1"><a class="" href="../covid19.md">Covid19 restrictions</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../GDP/">GDP and Unemploymet rate</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../GDP/">GDP and Unemployment rate</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
                     </li>
                 </ul>
       </div>
@@ -171,9 +179,15 @@
 <h3 id="training-method">Training Method</h3>
 <p>The training is done using the clusters that were developed based on the stationary data. The cluster development method has been elucidated within the <a href="">cluster section</a>.</p>
 <p>The intuition behind VAR based cluster methods is that the Kreis in each cluster move together in terms of the unemployment rate and affect each other. The regional clusters are made using Bundesland and does not perform as well as the custom clusters which were created using statistical data. Since VAR learns from parallel series, the kreis in each cluster affect each other's unemployment rate within the same cluster. </p>
-<p><em>Should I explain walk-forward?</em></p>
 <h2 id="prophet">Prophet</h2>
 <p>Prophet is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects. It works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend, and typically handles outliers well.</p>
+<p>We fitted the Prophet model and did a grid search to chose the hyper-parameters. 
+However, it did not perform well for our data. </p>
+<h2 id="sarima">SARIMA</h2>
+<p>Autoregressive Integrated Moving Average, or ARIMA, is one of the most widely used forecasting methods for univariate time series data forecasting. Although the method can handle data with a trend, it does not support time series with a seasonal component. An extension to ARIMA that supports the direct modeling of the seasonal component of the series is called SARIMA.</p>
+<p>The hyperparameters were tuned for all the time series (time series of unemployment of each kreis) using grid search individually. Most of the series converged best for the hyperparameters p:1, d:1, q:1, s_p:1, s_d:0, s_q:1 with each season containing a year. So these hyperparameters were chosen for all the 401 models that were trained for all the kreise.</p>
+<h2 id="neural-network">Neural network</h2>
+<p>We explored multiple architectures including fully-connected, simple RNN, LSTM, GRU. Fully-Connected networks with the inputs as the unemployment rates of past 12 months always constintently performed better than other architectures. The best Fully Connected Neural Networks was of the shape: 32, 16, 8, 4, 1 with ReLu for the activation function for all but the last layer.</p>
 <h2 id="hierarchical-time-series">Hierarchical Time Series</h2>
 <p>Hierarchical time series model is a model that utilized the hierarchy in the data. 
 It generates forecasts for each individual time series, 
@@ -203,7 +217,7 @@ which means that the hierarchy does not add any useful information. </p>
         <a href="../clusters/" class="btn btn-neutral float-right" title="Clusters">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../about/licenses/" class="btn btn-neutral" title="Licences"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../advanced/cleanerclass/" class="btn btn-neutral" title="Cleaner Class"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -229,7 +243,7 @@ which means that the hierarchy does not add any useful information. </p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../about/licenses/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../advanced/cleanerclass/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../clusters/" style="color: #fcfcfc">Next &raquo;</a></span>

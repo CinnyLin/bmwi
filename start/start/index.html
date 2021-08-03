@@ -77,6 +77,10 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/model/">Model page</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../steps/visualizations/">Visualizations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../steps/ranking.md">Rankings</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/error/">Error Analysis page</a>
                     </li>
                 </ul>
@@ -89,17 +93,6 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../advanced/cleanerclass/">Cleaner Class</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">About</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
-                    </li>
-                </ul>
                 <p class="caption"><span class="caption-text">Our Journey</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/models/">Models</a>
@@ -110,9 +103,20 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/causal_inf/">Causal Inference</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/covid19/">Covid19 restrictions</a>
+                    <li class="toctree-l1"><a class="" href="../../journey/covid19.md">Covid19 restrictions</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/GDP/">GDP and Unemploymet rate</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../journey/GDP/">GDP and Unemployment rate</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
                     </li>
                 </ul>
       </div>
@@ -169,7 +173,7 @@ mermaidAPI.initialize({
 <a href="#technical-users">🤔 Technical Users</a></p>
 <p><strong>Pro Tip</strong>: Clicking on the blue boxes in the flowchart brings you to the documentation page for that specific step.</p>
 <h2 id="first-time-users">First-time Users</h2>
-<p>This is a simplified version of the user workflow. </p>
+<p>This is a simplified version of the user workflow. You can find the detailed <a href="http://127.0.0.1:8000/start/user/">user workflow</a> here.</p>
 <div class="mermaid">
 graph LR
     subgraph Dataset Prep page
@@ -197,10 +201,11 @@ graph LR
 <p><br></p>
 <p>When you open the tool, the first page you see is the <strong>Home</strong> page.</p>
 <ol>
-<li>Your prediction journey starts on the <strong>Data Prep</strong> page. There, you upload the data, and do necessary preprocessing that would then feed into the model. </li>
-<li>Once you "confirm" the preprocessed data on the <strong>Data Prep</strong> page, you can go to the <strong>Model</strong> page. The preprocessed data from the page before is automatically loaded. The predictions may take a while to run. The prediction results are cached, which means it should run faster the second time you try to predict the same data. On the same model page, there are some line plots and map visualizations to quickly understand the prediction results, e.g. which kreis has the highest unemployment rate, whether the trend for that kreis is going up or down.</li>
+<li>Your prediction journey starts on the <strong>Data Prep</strong> page. There, you upload the data, and do necessary preprocessing that would then feed into the model. <a href="../../data/7444_318010_BMWI_Enkelmann_Eckdaten_Zeitreihe_Kreise.xlsx">Click here</a> to download an Excel file containing data till May 2021. This Excel file contains the format of the input that our tool was tested on.</li>
+<li>Once you "confirm" the preprocessed data on the <strong>Data Prep</strong> page, you can go to the <strong>Model</strong> page. The preprocessed data from the page before is automatically loaded. The predictions may take a while to run. The prediction results are cached, which means it should run faster the second time you try to predict the same data. </li>
+<li>The <strong>Visualizations</strong> page includes line plots and map visualizations to quickly understand the prediction results, e.g. which kreis has the highest unemployment rate, whether the trend for that kreis is going up or down.</li>
+<li>The <strong>Rankings</strong> page contains kreis-level and grouped rankings of unemployment rates and their percentage changes. </li>
 <li>The <strong>Error Analysis</strong> page would be automatically loaded with the prediction results. This page helps you look closer into which kreise were harder to predict, and how that compares with their basic infrastructures, such as number of hospitals, number of schools etc.</li>
-<li>The <strong>Home</strong> page is also automatically loaded with the prediction results. Apart from the map and line plot that you immediately saw on the model page, the home page contains kreis-level and grouped rankings of unemployment rates and their percentage changes. The home page is set to be the first page of the tool for quick access.</li>
 </ol>
 <p><br></p>
 <div class='mermaid'>

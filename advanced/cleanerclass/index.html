@@ -67,6 +67,10 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/model/">Model page</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../steps/visualizations/">Visualizations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../steps/ranking.md">Rankings</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/error/">Error Analysis page</a>
                     </li>
                 </ul>
@@ -135,17 +139,6 @@
     </ul>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">About</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
-                    </li>
-                </ul>
                 <p class="caption"><span class="caption-text">Our Journey</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/models/">Models</a>
@@ -156,9 +149,20 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/causal_inf/">Causal Inference</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/covid19/">Covid19 restrictions</a>
+                    <li class="toctree-l1"><a class="" href="../../journey/covid19.md">Covid19 restrictions</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../journey/GDP/">GDP and Unemploymet rate</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../journey/GDP/">GDP and Unemployment rate</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/tool/">Tool</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/project/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/team/">Team</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/licenses/">Licences</a>
                     </li>
                 </ul>
       </div>
@@ -204,35 +208,45 @@
 -->
 
 <h1 id="cleanerclass-explained">CleanerClass Explained</h1>
-<p>This page walks through the assumptions and implementation code for the excel sheet cleaner. </p>
+<p>This page walks through the assumptions and the implementation code for the excel sheet cleaner. </p>
 <h2 id="purpose-of-the-cleanerclass">Purpose of the CleanerClass</h2>
-<p>The excel sheet cleaner is what is used on the <a href="">Data Prep page</a> to get the data for our prediction model from excel workbooks. We have written two CleanerClasses: one for <strong>labor market data (unemployment rate)</strong> and one for <strong>GDP</strong>. </p>
-<p>The goal of the CleanerClass is to retrieve a csv-like format of the data, containing only the essential index columns, variable columns, and the numerical values of the data. Worksheets that are metadata descriptions would be discarded, and the watermark-like header rows would also be cropped out in the process.</p>
+<p>The excel sheet cleaner is used on the <a href="">Data Prep page</a> to get the formatted data for our forecast model from excel workbooks.<!-- We have written two CleanerClasses: one for **labor market data (unemployment rate)** and one for **GDP**.  --></p>
+<p>The goal of the CleanerClass is to retrieve a python friendly format of the data, containing only the essential index columns, variable columns, and the numerical values of the data. Worksheets that contain only metadata or descriptions would be discarded, and the watermark-like header rows would also be cropped out in the process.</p>
 <h2 id="assumed-formatting-for-the-cleanerclass">Assumed Formatting for the CleanerClass</h2>
 <p>As explained briefly in the Data Prep page, below is the expected structure of the excel workbook.</p>
 <p><img alt="alq excel" src="../cleanerclass_screenshots/alq_data.png" /></p>
 <p>The assumptions for the input excel workbook are as follows:</p>
 <ul>
 <li><strong>every kreis is a row</strong><ul>
-<li>although every row need not be a kreis</li>
+<li>although every row need not be a kreis<ul>
 <li>for example, there are also rows that represents the whole bundesland</li>
 </ul>
 </li>
+<li>all 401 kreis's AGS5 values must exist, and exist in the same column<ul>
+<li>The ags5 values for cities like Berlin and Hamburg must exist (not just their ags2 values)</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><strong>the left most column of the table has the ags5 code value</strong><ul>
-<li>the left most column of the table need not be left most column of sheet</li>
-<li>"sheet" is the data format we are given, and "table" is the data format we would end up with</li>
-<li>thus, once the CleanerClass finds the ags5 column, that column becomes the left most column of the result table, and every column left to the ags5 column would be cropped out</li>
+<li>the left most column of the table need not be left most column of sheet<ul>
+<li>"sheet" describes a single Excel sheet, and "table" describes the acutual tabular data (along with the indexes and columns)</li>
+</ul>
+</li>
+<li>thus, once the CleanerClass finds the ags5 column, that column becomes the left most column of the output table, and every column left to the ags5 column would be cropped out</li>
 <li>in other words, no data should be recorded to the left on the ags5 column</li>
 <li>also, any essential columns should also be recorded to the right of the ags5 column</li>
 </ul>
 </li>
 <li><strong>every column is a time-stamp</strong> <ul>
-<li>the input excel workbook is expected to be in wide format</li>
-<li>the output csv file supports both long and wide formats</li>
+<li>the input excel workbook is expected to be in wide format (i.e., kreise are rows; timestamps are columns)</li>
+<li>however, after cleaning, the CleanerClass can provide both wide and long formats</li>
+<li>there must be atleast 5 timestamps</li>
 </ul>
 </li>
 <li><strong>every cell is a numeric value</strong><ul>
 <li>categorical values are not permitted in the worksheet</li>
+<li>any column with non-numeric data (like: 'Zero', 'Does not exist', null), will be dropped (only if the non-numeric data exists in a row containing an AGS5 value, below the row containing the timestamps)</li>
 </ul>
 </li>
 </ul>
@@ -240,7 +254,8 @@
 <!-- - differences between UR and GDP cleanerclass -->
 
 <h2 id="code-walkthrough">Code Walkthrough</h2>
-<p>There are only minor differences between the CleanerClass for unemployment rate and the one for GDP. This page would go through a generalized cleanerclass in detail.</p>
+<!-- There are only minor differences between the CleanerClass for unemployment rate and the one for GDP. -->
+<p>This page would go through the implementation of the cleanerclass in detail.</p>
 <h3 id="class-initiation">Class Initiation</h3>
 <p>First, we import the necessary library, <code>pandas</code>, to read in excel workbook in Python. Second, we set a variable called <code>AGS5_LIST</code>, which is a list that stores all the ags5 code in numerical value.</p>
 <pre><code># import requirements
@@ -552,7 +567,7 @@ AGS5_LIST = [ 1001,  1002,  1003,  1004,  1051,  1053,  1054,  1055, ...]
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../about/tool/" class="btn btn-neutral float-right" title="Tool">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../journey/models/" class="btn btn-neutral float-right" title="Models">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../installation/" class="btn btn-neutral" title="Installation and Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -584,7 +599,7 @@ AGS5_LIST = [ 1001,  1002,  1003,  1004,  1051,  1053,  1054,  1055, ...]
       <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../about/tool/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../journey/models/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

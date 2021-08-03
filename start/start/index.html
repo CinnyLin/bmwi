@@ -173,8 +173,8 @@ mermaidAPI.initialize({
 <a href="#technical-users">🤔 Technical Users</a></p>
 <p><strong>Pro Tip</strong>: Clicking on the blue boxes in the flowchart brings you to the documentation page for that specific step.</p>
 <h2 id="first-time-users">First-time Users</h2>
-<p>This is a simplified version of the user workflow. You can find the detailed <a href="http://127.0.0.1:8000/start/user/">user workflow</a> here.</p>
-<div class="mermaid">
+<p>This is a simplified version of the user workflow. You can find the detailed <a href="../../start/user/">user workflow</a> here.</p>
+<!-- <div class="mermaid">
 graph LR
     subgraph Dataset Prep page
     A[data input]
@@ -189,16 +189,17 @@ graph LR
     F[data story-telling]
     end
     F -.-> A
-    A --> B
-    B --> E
-    B --> F
+    A -.-> B
+    B -.-> E
+    B -.-> F
     click A "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/data_prep.py"
     click B "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/model_v1.py"
     click E "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/error_analysis.py"
     click F "https://github.com/prakharrathi25/the-tool-bmwi/blob/main/pages/home_page.py"
 </div>
 
-<p><br></p>
+<br> -->
+
 <p>When you open the tool, the first page you see is the <strong>Home</strong> page.</p>
 <ol>
 <li>Your prediction journey starts on the <strong>Data Prep</strong> page. There, you upload the data, and do necessary preprocessing that would then feed into the model. <a href="../../data/7444_318010_BMWI_Enkelmann_Eckdaten_Zeitreihe_Kreise.xlsx">Click here</a> to download an Excel file containing data till May 2021. This Excel file contains the format of the input that our tool was tested on.</li>
@@ -213,14 +214,14 @@ graph LR
     A1(First-time Users)
     A1-->A2[Step-By-Step Guide]
     A1-->A3[Tool]
-    click A2 "http://127.0.0.1:8000/steps/home/"
-    click A3 "https://bmwi-viz.herokuapp.com/"
+    click A2 "../../steps/home/"
+    click A3 "https://bmwi-tool.herokuapp.com/"
     style A2 fill:#CAEEFE,stroke:#2596be,color:#063970
     style A3 fill:#CAEEFE,stroke:#2596be,color:#063970
 </div>
 
 <p><br></p>
-<p>Now that you understand what you can expect, visit to the <strong>Step-By-Step Guide section</strong> of the documentation. We suggest that you open up the tool on a side-by-side window, so that you can follow and implement along with the guided instruction.</p>
+<p>Now that you understand what you can expect, visit to the <a href="" title="../steps/home/"><strong>Step-By-Step Guide section</strong></a> of the documentation if necessary. We suggest that you open up the tool on a side-by-side window, so that you can follow and implement along with the guided instruction.</p>
 <p><br></p>
 <h2 id="experienced-users">Experienced Users</h2>
 <p>If you are an experienced user, you can dive right in the tool! </p>
@@ -229,8 +230,8 @@ graph LR
     B1(Experienced Users)
     B1-->B2[Tool]
     B1-->B3[Error Handling]
-    click B2 "https://bmwi-viz.herokuapp.com/"
-    click B3 "http://127.0.0.1:8000/steps/home/"
+    click B2 "https://bmwi-tool.herokuapp.com/"
+    click B3 "../../steps/error/"
     style B2 fill:#CAEEFE,stroke:#2596be,color:#063970
     style B3 fill:#CAEEFE,stroke:#2596be,color:#063970
 </div>
@@ -247,19 +248,19 @@ graph LR
     C1 --> C2[Prediction Results]
     C1 --> C3[Quick Access documentation]
     C1 --> C4[Quick Access tool page]
-    click C2 "http://127.0.0.1:8000/start/start/"
-    click C3 "http://127.0.0.1:8000/start/quick/"
-    click C4 "http://localhost:8501/"
+    click C2 "../../start/start/"
+    click C3 "../../start/quick/"
+    click C4 "../../start/quick/"
     style C2 fill:#CAEEFE,stroke:#2596be,color:#063970
     style C3 fill:#CAEEFE,stroke:#2596be,color:#063970
     style C4 fill:#CAEEFE,stroke:#2596be,color:#063970
 </div>
 
 <p><br></p>
+<!-- - If you just want to get the prediction results for this quarter, [here]() is the link to download the excel file. -->
 <ul>
-<li>If you just want to get the prediction results for this quarter, <a href="">here</a> is the link to download the excel file.</li>
-<li>If you want to quickly get a grasp of the project, the tool, and the documentation, <a href="http://127.0.0.1:8000/start/start/">this page</a> is for you.</li>
-<li>If you want to get a light interpreattion for the latest prediction results, the <a href="">home page</a> of the tool provides rankings, and the <a href="">model page</a> provides line plots and a map of Germany.</li>
+<li>If you want to quickly get a grasp of the project, the tool, and the documentation, <a href="../../start/start/">this page</a> is for you.</li>
+<li>If you want to get a light interpreattion for the latest prediction results, the <a href="https://bmwi-tool.herokuapp.com/">home page</a> of the tool provides rankings, and the <a href="https://bmwi-tool.herokuapp.com/">model page</a> provides line plots and a map of Germany.</li>
 </ul>
 <p><br></p>
 <h2 id="technical-users">Technical Users</h2>
@@ -269,15 +270,15 @@ graph LR
     D1(Technical Users) 
     D1 --> D3[Technical Workflow page]
     D1 --> D4[Installation and Setup page]
-    click D3 "http://127.0.0.1:8000/advanced/tech_flow/"
-    click D4 "http://127.0.0.1:8000/advanced/installation/"
+    click D3 "../../advanced/tech_flow/"
+    click D4 "../../advanced/installation/"
     style D3 fill:#CAEEFE,stroke:#2596be,color:#063970
     style D4 fill:#CAEEFE,stroke:#2596be,color:#063970
 </div>
 
 <ul>
-<li>The <strong><a href="">Technical Workflow page</a></strong> explains the data model pipeline.</li>
-<li>Check out the <strong><a href="">Installation and Setup page</a></strong> to get started!</li>
+<li>The <strong><a href="../../advanced/tech_flow/">Technical Workflow page</a></strong> explains the data model pipeline.</li>
+<li>Check out the <strong><a href="../../advanced/installation/">Installation and Setup page</a></strong> to get started!</li>
 </ul>
               
             </div>

@@ -61,9 +61,9 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Step-by-Step Guide</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../steps/data_prep/">Data Prep page</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../steps/data_prep/">Data Prep Page</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../steps/model/">Model page</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../steps/model/">Model Page</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../steps/visualizations/">Visualizations</a>
                     </li>
@@ -80,9 +80,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#about-streamlit">About Streamlit</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-steps">Installation Steps</a>
     </li>
     </ul>
                     </li>
@@ -92,8 +90,6 @@
                 <p class="caption"><span class="caption-text">Our Journey</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/models/">Models</a>
-                    </li>
-                    <li class="toctree-l1"><a class="" href="../../journey/hierarchical_ts.md">Hierarchical Time Series</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/clusters/">Clusters</a>
                     </li>
@@ -167,56 +163,48 @@
 <h2 id="about-streamlit">About Streamlit</h2>
 <p>This application is built using <a href="https://streamlit.io/">Streamlit</a>, a Python framework to build interactive web applications. It has a rich API for various interactive features which can be learnt more about <a href="https://docs.streamlit.io/en/stable/api.html">here</a>. It's a relatively new framework and its recommended to explore <a href="https://docs.streamlit.io/en/stable/getting_started.html">building basic apps</a> with it before diving deep into the repository. </p>
 <p>To set up the repository on your local machine follow the installation steps below: </p>
-<h2 id="installation">Installation</h2>
+<h2 id="installation-steps">Installation Steps</h2>
 <p>To set up the application on your local machine, follow these steps. </p>
-<ol>
-<li>Clone the repository on your local machine </li>
-</ol>
-<pre><code>git clone &lt;link&gt;
-</code></pre>
-<ol>
+<ul>
+<li>
+<p>Clone the repository on your local machine </p>
+<p><code>git clone &lt;link&gt;</code></p>
+</li>
 <li>
 <p>Create a virtual environment </p>
-<p>For MacOS/Linux</p>
+<ul>
+<li>For MacOS/Linux - <code>``python3 -m venv env</code></li>
+<li>For Windows - <code>py -m venv env</code></li>
+</ul>
 </li>
-</ol>
-<pre><code>python3 -m venv env
-</code></pre>
-<pre><code>For Windows
-</code></pre>
-<pre><code>py -m venv env
-</code></pre>
+</ul>
 <p>The second argument is the location to create the virtual environment. Generally, you can just create this in your project and call it <code>env</code>. Read more about virtual env <a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/">here</a>. </p>
 <blockquote>
 <p><strong>Note:</strong> You should exclude your virtual environment directory from your version control system using .gitignore or similar.</p>
 </blockquote>
-<ol>
+<ul>
 <li>
 <p>Activate the virtual environment </p>
+<ul>
+<li>
+<p>For MacOS/Linux - <code>source env/bin/activate</code></p>
 </li>
 <li>
-<p>For MacOS/Linux </p>
+<p>For Windows - <code>.\env\Scripts\activate</code></p>
 </li>
-</ol>
-<pre><code>source env/bin/activate
+</ul>
+</li>
+<li>
+<p>Install requirements </p>
+</li>
+</ul>
+<pre><code class="language-bash">pip install -r requirements.txt
 </code></pre>
 <ul>
-<li>For Windows </li>
-</ul>
-<pre><code>.\env\Scripts\activate
-</code></pre>
-<ol>
-<li>Install requirements </li>
-</ol>
-<pre><code>pip install -r requirements.txt
-</code></pre>
-<ol>
 <li>Run the streamlit app </li>
-</ol>
-<pre><code>streamlit run app.py
+</ul>
+<pre><code class="language-bash">streamlit run app.py
 </code></pre>
-<h2 id="code-walkthrough">Code Walkthrough</h2>
-<p>Page by page walkthrough of the functions being used in the application. </p>
               
             </div>
           </div>

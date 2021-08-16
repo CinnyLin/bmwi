@@ -9,7 +9,7 @@
   
   <link rel="canonical" href="https://example.com/steps/data_prep/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Data Prep page - BMWi Forecasting Tool</title>
+  <title>Data Prep Page - BMWi Forecasting Tool</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Data Prep page";
+    var mkdocs_page_name = "Data Prep Page";
     var mkdocs_page_input_path = "steps\\data_prep.md";
     var mkdocs_page_url = "/steps/data_prep/";
   </script>
@@ -61,7 +61,7 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Step-by-Step Guide</span></p>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Data Prep page</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Data Prep Page</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#time-series-data-excel-workbook">Time-series data excel workbook</a>
         <ul>
@@ -91,7 +91,7 @@
     </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../model/">Model page</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../model/">Model Page</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../visualizations/">Visualizations</a>
                     </li>
@@ -112,8 +112,6 @@
                 <p class="caption"><span class="caption-text">Our Journey</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/models/">Models</a>
-                    </li>
-                    <li class="toctree-l1"><a class="" href="../../journey/hierarchical_ts.md">Hierarchical Time Series</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../journey/clusters/">Clusters</a>
                     </li>
@@ -160,7 +158,7 @@
         
       
     
-    <li>Data Prep page</li>
+    <li>Data Prep Page</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -184,14 +182,11 @@
 
 - both assumes to have one column containing the kreis-level area code `ags5` ("amtlicher gemeindeschlüssel") -->
 
-<p>This section process the input excel workbook for time-series or structural data type. It assumes that the data is:</p>
+<p>This section processes the excel file that is inputted. The excel file must contain time-series data adhering to the following rules: </p>
 <ul>
-<li>
-<p>in <strong>wide</strong>-format, where each worksheet contains data for one variable</p>
-</li>
-<li>
-<p>have one column containing the kreis-level area code <code>ags5</code> ("amtlicher gemeindeschlüssel")</p>
-</li>
+<li>data should be in <strong>wide</strong>-format (the columns are different timestamps, rows are kreise)</li>
+<li>one sheet cannot have more than one variable (e.g., unemployment rate)</li>
+<li>have one column containing the kreis-level area code <code>ags5</code> ("amtlicher gemeindeschlüssel")</li>
 </ul>
 <h2 id="time-series-data-excel-workbook">Time-series data excel workbook</h2>
 <!-- ### Error Handling
@@ -217,6 +212,7 @@ When you open up the page, you will likely be facing this error. No worries, tha
     <li> The index column "Region" shows that each row is a record of one kreis.
     <li> The rest of the columns should represent each year and month.
     <li> Each worksheet represents a different variable. For example, the current worksheet selected is "Alo_Quote", which stands for unemployment rate ("Arbeitslosenquote"). 
+    <li> It is important that there is a sheet which is called "Alo_Quote" which contain the unemployment rate data. 
 </ul>
 <p></i></p>
 <!-- - `GDP` (GDP data, containing kreis-level GDP breakdown)
@@ -291,7 +287,7 @@ When you open up the page, you will likely be facing this error. No worries, tha
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../model/" class="btn btn-neutral float-right" title="Model page">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../model/" class="btn btn-neutral float-right" title="Model Page">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../start/quick/" class="btn btn-neutral" title="Quick Access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
